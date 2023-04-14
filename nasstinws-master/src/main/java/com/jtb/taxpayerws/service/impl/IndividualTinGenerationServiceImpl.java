@@ -117,7 +117,7 @@ public class IndividualTinGenerationServiceImpl extends AbstractJTBService imple
 
         IndividualTinGenerationEntity individualTinGenerationEntity = optionalIndividual.orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, ErrorInfo.RECORD_DOES_NOT_EXIST.getErrorMessage()));
 
-        return modelMapper.map(individualTinGenerationEntity, IndividualTinGenerationDto.class);
+        return modelMapper.map(individualTinGenerationEntity, IndividualTinGenerationDto.class)
     }
 
 
