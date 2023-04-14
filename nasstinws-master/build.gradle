@@ -1,0 +1,45 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.jtb'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.liquibase:liquibase-core'
+	implementation 'javax.validation:validation-api'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.modelmapper:modelmapper:3.0.0'
+	implementation 'com.nimbusds:nimbus-jose-jwt:9.16'
+	implementation 'org.bouncycastle:bcpkix-jdk15on:1.69'
+	implementation 'javax.mail:javax.mail-api:1.6.2'
+	implementation 'org.freemarker:freemarker:2.3.31'
+	implementation 'org.springframework.boot:spring-boot-starter-mail:2.6.3'
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.1'
+	implementation 'io.github.openfeign:feign-okhttp:11.8'
+	implementation 'io.github.openfeign:feign-httpclient:11.8'
+	runtimeOnly 'org.postgresql:postgresql'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

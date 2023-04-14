@@ -1,0 +1,2 @@
+ALTER TABLE access_token
+ADD COLUMN user_id INTEGER NOT NULL;

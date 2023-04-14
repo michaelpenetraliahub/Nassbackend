@@ -1,0 +1,68 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:3333/taxpayerdb
+    username: postgres
+    password: michaelMJ12
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    show_sql: false
+    properties:
+      hibernate:
+        show_sql: false
+        generate_statistics: false
+        use_sql_comments: false
+        temp:
+          use_jdbc_metadata_defaults: false
+  mail:
+    default-encoding: UTF-8
+    host: smtp.office365.com
+    port: 587
+    username: nassarawabir@jtb.gov.ng
+    password: Gap63364
+
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+          starttls:
+            enable: true
+
+server:
+  port: 8888
+  ssl:
+    key-store: classpath:NewKeyStore.jks
+    key-store-password: password
+    key-store-type: jks
+    key-alias: nsirs
+    key-password: password
+
+
+  servlet:
+    context-path: /api
+
+security:
+  config:
+    issuer-id: 'https://tin.nsirs.ng'
+    access-token-lifespan: 3600
+    refresh-token-lifespan: 4800
+    signup-token-lifespan: 3600
+    password-reset-token-lifespan: 86400
+    secret: jtbtin123$
+
+
+
+jtb:
+  email: jarma2k6@gmail.com
+  password: P@netrali@4321
+  clientname: jtb
+  base-url: "https://api.jtb.gov.ng:2087/api"
+
+#jtb:
+#  email: nassarawabir@jtb.gov.ng
+#  password: Password123$
+#  clientname: jtb
+#  base-url: "https://api.jtb.gov.ng:2087/api"

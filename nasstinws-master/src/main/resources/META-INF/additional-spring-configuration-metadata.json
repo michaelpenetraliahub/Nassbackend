@@ -1,0 +1,23 @@
+{
+  "properties": [
+    {
+      "name": "jtb.email",
+      "type": "java.lang.String",
+      "description": "Description for jtb.email."
+    },
+    {
+      "name": "jtb.password",
+      "type": "java.lang.String",
+      "description": "Description for jtb.password."
+    },
+    {
+      "name": "jtb.clientname",
+      "type": "java.lang.String",
+      "description": "Description for jtb.clientname."
+    },
+    {
+      "name": "jtb.base-url",
+      "type": "java.lang.String",
+      "description": "Description for jtb.base-url."
+    }
+  ] }
