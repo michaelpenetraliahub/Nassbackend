@@ -47,6 +47,10 @@ public class IndividualTinGenerationServiceImpl extends AbstractJTBService imple
     public IndividualTinGenerationDto createIndividualTinGeneration(IndividualTinGenerationDto individualTinGenerationDto) {
         IndividualTinGenerationEntity individualTinGenerationEntity = modelMapper.map(individualTinGenerationDto, IndividualTinGenerationEntity.class);
 
+        JTBIndividualTinGenerationResponse individualTinGenerationResponse = jtbClientProxy.getIndividualTinGeneration(jtbTaxpayerRequest, getLoginResponseEntity().getTokenId());
+        IndividualTinGenerationEntity individualTinGenerationEntity = modelMapper.map(individualTinGenerationRespons, IndividualTinGenerationEntity.class);
+
+
         return modelMapper.map(individualTinGenerationRepository.save(individualTinGenerationEntity), IndividualTinGemerationDto.class);
     }
 
@@ -76,7 +80,7 @@ public class IndividualTinGenerationServiceImpl extends AbstractJTBService imple
     @Override
     @Transactional
     public PageDetail<IndividualTinGenerationResponse> getAllIndividualTinGenerations(int page, int limit) {
-        Pageable pageable = PageRequest.of(page - 1, limit, Sort.by("").descending());
+        Pageable pageable = PageRequest.of(page - 1, limit, Sort.by("name").descending());
         Page<IndividualTinGenerationEntity> pages = individualTinGenerationRepository.findAll(pageable);
         Paging paging = new Paging();
         paging.setPage(pages.getNumber() + 1);
@@ -106,9 +110,6 @@ public class IndividualTinGenerationServiceImpl extends AbstractJTBService imple
                 IndividualTaxpayer taxpayer = individualTinGenerationResponse.getTaxpayer();
                 IndividualTinGenerationEntity individualTinGenerationEntity = modelMapper.map(taxpayer, IndividualTinGenerationEntity.class);
                 individualTinGenerationEntity.setJtbTin(taxpayer.getTin());
-
-//                if(!taxpayer.getDob().trim().isEmpty() && Objects.nonNull(taxpayer.getDob())) individualTinGenerationEntity.setDateOfBirth(DateUtil.parseStringToDate(taxpayer.getDob()));
-//                if(!taxpayer.getDateOfReg().trim().isEmpty() && Objects.nonNull(taxpayer.getDateOfReg())) individualTinGenerationEntity.setDateOfRegistration(DateUtil.parseStringToDate(taxpayer.getDateOfReg()));
 
                 optionalIndividualTinGeneration = Optional.of(individualTinGenerationRepository.save(individualTinGenerationEntity));
             }

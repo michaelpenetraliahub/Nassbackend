@@ -28,4 +28,9 @@ public interface JTBClientProxy {
 
     @PostMapping("/nonindividualtinvalidation")
     JTBNonIndividualResponse getNonIndividual(@RequestBody JTBTaxpayerRequest jtbTaxpayerRequest, @RequestParam("tokenid") String token);
+
+
+    @PostMapping("/individualtingenerationvalidation")
+    JTBIndividualResponse getIndividualTinGeneration(@RequestBody JTBTaxpayerRequest jtbTaxpayerRequest , @RequestParam("tokenid") String token);
+
 }
