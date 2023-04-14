@@ -37,7 +37,7 @@ public class IndividualTinGenerationServiceImpl extends AbstractJTBService imple
     public IndividualTinGenerationServiceImpl(JTBClientProxy jtbClientProxy, IndividualTinGenerationRepository individualTinGenerationRepository, ModelMapper modelMapper) {
         super(jtbClientProxy);
         this.individualTinGenerationRepository = individualTinGenerationRepository;
-        this.modelMapper = modelMapper;
+        this.modelMapper = modelMapper
     }
 
 
