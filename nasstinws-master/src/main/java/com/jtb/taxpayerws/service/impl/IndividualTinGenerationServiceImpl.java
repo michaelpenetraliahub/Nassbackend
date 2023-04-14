@@ -86,7 +86,7 @@ public class IndividualTinGenerationServiceImpl extends AbstractJTBService imple
         paging.setPage(pages.getNumber() + 1);
         paging.setPageSize(pages.getSize());
         paging.setTotalPages(pages.getTotalPages());
-        paging.setTotalRecord(pages.getTotalElements());
+        paging.setTotalRecord(pages.getTotalElements())
 
         PageDetail<IndividualTinGenerationResponse> pageDetail = new PageDetail<>();
         pageDetail.setPaging(paging);
